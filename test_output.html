@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#424242" />
+        <title>Login : LA VICTOIRE DE L'ENSEIGNEMENT PRIVE</title>        
+        <link href="https://e-victoire.groupelavictoire.com/uploads/school_content/admin_small_logo/1777474349-49315105969f21b2d6aa12!Logo lavictoire.png" rel="shortcut icon" type="image/x-icon">
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/css/form-elements.css">
+        <link rel="stylesheet" href="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/css/style.css">
+        <link rel="stylesheet" href="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/css/jquery.mCustomScrollbar.min.css">
+          <link rel="stylesheet" href="https://e-victoire.groupelavictoire.com/backend/dist/css/google_authenticator.css">
+    </head>
+    <body>
+        <!-- Top content -->
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container-fluid">
+                    <div class="row">
+                          
+                        <div class="bgoffsetbg">  
+                            <div class="col-lg-4 col-md-4 col-sm-12 nopadding  ">
+                                 
+                                <div class="loginbg">  
+                                   <div class="form-top">
+                                        <div class="form-top-left logowidth">
+                                            <img src="https://e-victoire.groupelavictoire.com/uploads/school_content/admin_logo/1.png" />    
+                                        </div>
+                                    </div>
+                                    <div class="form-bottom">
+                                        <h3 class="font-white bolds">Connexion administrateur</h3>
+                                                                                                                                                                 <form role="form" class="login-form" action="javascript:void(0);">
+                                            <input type='hidden' name='ci_csrf_token' value=''/>                                            <span class="error_message text-danger"></span>
+                                            <div class="form-group has-feedback">                                            
+                                                <input type="text" name="username" placeholder="Nom d&#39;utilisateur" value="" class="form-username form-control" id="form-username">
+                                                 
+                                                <span class="error_username text-danger"></span>
+                                            </div>
+                                            <div class="form-group has-feedback">                      
+                                                <input type="password" value="" name="password" placeholder="Mot de passe" class="form-password form-control" id="form-password">
+                                                
+                                                <span class="error_password text-danger"></span>
+                                            </div>
+                                                                                        <button type="submit" class="btn" id="submit1" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Please wait...">S&#39;identifier</button>
+                                        </form>
+                                        <form role="form" class="gauthenticate-form" action="javascript:void(0);">
+                    <fieldset>
+                       
+                        <div class="">
+                                  <span class="error_message_code">
+                    
+                </span>
+                           
+                      <div class="form-group">
+                        <input type="text" name="code" placeholder="Le code de vérification" class="form-email form-control" id="code">
+                        <span class="error_code text-danger"></span>
+                    </div>                         
+                    <button type="submit" class="btn" id="submit2"  data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Please wait...">Vérifier la connexion</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+                                        <p><a href="https://e-victoire.groupelavictoire.com/site/forgotpassword" class="forgot"><i class="fa fa-key"></i> Mot de passe oublié?</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                                <div class="col-lg-8 col-md-8 col-sm-12 nopadding-2">
+                                   <div class="d-flex align-items-center text-wrap flex-column justify-content-center bg-position-sm-left bg-position-lg-center" style="background: url('https://e-victoire.groupelavictoire.com/uploads/school_content/login_image/1663064530-1070210809632059d2b8b0b!1662796232-1721792380631c41c80d038!login_bg3.jpg') no-repeat; background-size:cover">  
+                                    <div class="">
+                                                                      </div>  
+                                  </div>  
+                                </div><!--./col-lg-6-->
+                                
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Javascript -->
+        <script src="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/js/jquery.backstretch.min.js"></script>
+        <script src="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/js/jquery.mCustomScrollbar.min.js"></script>
+        <script src="https://e-victoire.groupelavictoire.com/backend/usertemplate/assets/js/jquery.mousewheel.min.js"></script>
+    </body>
+</html>
+
+<script type="text/javascript">
+(function ($) {
+    "use strict";
+    
+    $(document).ready(function () {
+       
+        $('.login-form input[type="text"]').on('focus', function () {
+            $(this).removeClass('input-error');
+        });
+
+        // next step
+        $(document).on('submit','.login-form',function(e){
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            $( "span[class^='error_']").html("");
+
+            var parent_fieldset = $(this).parents('fieldset');      
+            var next_step = false;
+            var $this=$(this);
+            let submit_btn= $this.closest('form').find("button[type=submit]");         
+            var username=$("input[name='username']").val();
+            var password=$("input[name='password']").val();
+            var captcha=$("input[name='captcha']").val();
+            
+            $.ajax({
+                url: "https://e-victoire.groupelavictoire.com/gauthenticate/verfiy_login",
+                type: "POST",
+                data: {'username': username ,'password': password,'captcha': captcha},
+                dataType: 'json',
+                async: true, 
+                beforeSend: function () {
+                    submit_btn.button('loading');
+                },
+                success: function (response)
+                {
+              
+                if (response.status == 0) {
+              
+                    $.each(response.error, function (index, value) {
+                        $('.error_'+index).html(value);
+                    });
+          
+                } else if (response.status == 1)  {
+                    
+                    $('.error_message').html(response.error.error_message);
+                    
+                }else if (response.status == 2)  {
+                    
+                    if(!response.authenticator){
+                        
+                      window.location.href=response.redirect_to;
+                        return false;
+                    }
+                    submit_btn.button('reset');                 
+                    open_gform($this);            
+                    }
+
+                submit_btn.button('reset');
+
+                },
+                error: function (xhr) { // if error occured
+                    alert("Error occured.please try again");
+                    submit_btn.button('reset');
+                },
+                complete: function () {
+                    submit_btn.button('reset');
+                }
+
+            });
+
+          
+        });
+
+
+        let open_gform=(selector)=>{
+
+                        selector.fadeOut(400, function () {
+                        $(this).next().children().fadeIn();
+                        });
+                  
+        }
+    // submit
+    $(document).on('submit','.gauthenticate-form',function(e){
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        var form = $(this);
+        let submit_btn= form.closest('form').find("button[type=submit]");  
+        var from1=$('.login-form');
+        var url = form.attr('action');
+
+            $.ajax({
+                url: "https://e-victoire.groupelavictoire.com/gauthenticate/submit_login",
+                type: "POST",
+                data: from1.serialize()+ "&" + form.serialize(),
+                dataType: 'json',
+             
+                beforeSend: function () {
+                    submit_btn.button('loading');
+                },
+                success: function (response)
+                {
+              
+                if (response.status == 0) {
+              
+                    $.each(response.error, function (index, value) {
+                        $('.error_'+index).html(value);
+                    });
+          
+                } else if (response.status == 1)  {
+                    
+                    $('.error_message_code').html(response.error.error_message);
+               
+                }else if (response.status == 2)  {
+           
+                    window.location.href=response.redirect_to;
+                }
+
+                submit_btn.button('reset');
+
+                },
+                error: function (xhr) { // if error occured
+                    alert("Error occured.please try again");
+                    submit_btn.button('reset');
+                },
+                complete: function () {
+                    submit_btn.button('reset');
+                }
+            });
+        });   
+    });
+})(jQuery); 
+</script>
+<script type="text/javascript">
+    function refreshCaptcha(){
+        $.ajax({
+            type: "POST",
+            url: "https://e-victoire.groupelavictoire.com/site/refreshCaptcha",
+            data: {},
+            success: function(captcha){
+                $("#captcha_image").html(captcha);
+            }
+        });
+    }    
+</script>

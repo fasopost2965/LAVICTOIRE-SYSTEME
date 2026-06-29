@@ -1,0 +1,10 @@
+admission_no,firstname,lastname,ancienne_classe,nouvelle_classe,tarif_base_detecte,montant_paye_moyen,type_remise,nombre_mois_analysés,statut,raison
+1,adad,Amadou,"6ième Année","7ième Année-A",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"
+19071,ROMAISSAE,"AIT ALLA","6ième Année","7ième Année-B",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"
+19106,AMJAD,AHADRI,"6ième Année","7ième Année-A",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"
+19136,SIRAJ,ZNAGI,"6ième Année","7ième Année-A",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"
+19137,AHMED,DOUINI,"6ième Année","7ième Année-B",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"
+19155,"MOHAMED ISLAM",CHAREF,"6ième Année","7ième Année-A",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"
+19177,AALYAE,BENDRISS,"6ième Année","7ième Année-A",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"
+19186,BASMA,RIAT,"6ième Année","7ième Année-B",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"
+19229,"MOHAMMED AMINE","EL HARTITI","6ième Année","7ième Année-A",0,0,aucune,0,A_VERIFIER,"Tarif de base impossible à déterminer"

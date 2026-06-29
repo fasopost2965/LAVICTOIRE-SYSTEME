@@ -1,0 +1,474 @@
+/* ============================================
+   LA VICTOIRE — Design Clair v2.0
+   ============================================ */
+
+:root {
+  --lv-blue:        #2B52D4;
+  --lv-blue-light:  #EEF2FF;
+  --lv-blue-mid:    #C7D4FA;
+  --lv-text:        #1E293B;
+  --lv-text-soft:   #64748B;
+  --lv-bg:          #F4F6FB;
+  --lv-white:       #FFFFFF;
+  --lv-radius:      12px;
+  --lv-shadow:      0 1px 6px rgba(0,0,0,0.07);
+  --lv-green:       #16A34A;
+  --lv-green-light: #DCFCE7;
+  --lv-amber:       #D97706;
+  --lv-amber-light: #FEF3C7;
+  --lv-red:         #DC2626;
+  --lv-red-light:   #FEE2E2;
+  --lv-purple:      #7C3AED;
+  --lv-purple-light:#EDE9FE;
+}
+
+/* === BODY === */
+body, .wrapper {
+  background: var(--lv-bg) !important;
+}
+
+/* === SIDEBAR — blanche et claire === */
+.main-sidebar {
+  background: var(--lv-white) !important;
+  border-right: 1px solid #E2E8F0 !important;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.04) !important;
+}
+.main-sidebar .logo-mini,
+.main-sidebar .logo-lg {
+  background: var(--lv-white) !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+.sidebar-menu > li > a {
+  color: var(--lv-text-soft) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  border-radius: 8px !important;
+  margin: 1px 8px !important;
+  padding: 9px 12px !important;
+  transition: all 0.15s ease !important;
+}
+.sidebar-menu > li > a:hover {
+  background: var(--lv-blue-light) !important;
+  color: var(--lv-blue) !important;
+}
+.sidebar-menu > li.active > a,
+.sidebar-menu > li.menu-open > a {
+  background: var(--lv-blue-light) !important;
+  color: var(--lv-blue) !important;
+  font-weight: 500 !important;
+  border-left: 3px solid var(--lv-blue) !important;
+}
+.sidebar-menu > li > a > .fa,
+.sidebar-menu > li > a > i {
+  color: inherit !important;
+  width: 18px;
+}
+.treeview-menu > li > a {
+  color: var(--lv-text-soft) !important;
+  font-size: 12px !important;
+  padding: 6px 12px 6px 30px !important;
+}
+.treeview-menu > li.active > a,
+.treeview-menu > li > a:hover {
+  color: var(--lv-blue) !important;
+  background: transparent !important;
+}
+.sidebar-menu .header {
+  color: #94A3B8 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 12px 16px 4px !important;
+}
+
+/* === HEADER — blanc épuré === */
+.main-header {
+  background: var(--lv-white) !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+}
+.main-header .navbar {
+  background: var(--lv-white) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.main-header .logo {
+  background: var(--lv-blue) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em !important;
+}
+.main-header .navbar .nav > li > a {
+  color: var(--lv-text-soft) !important;
+}
+.main-header .navbar .nav > li > a:hover {
+  color: var(--lv-blue) !important;
+  background: var(--lv-blue-light) !important;
+}
+.main-header .navbar .sidebar-toggle {
+  color: var(--lv-text-soft) !important;
+}
+.main-header .navbar-custom-menu .label {
+  background: var(--lv-red) !important;
+}
+
+/* Titre école dans la navbar */
+.main-header .navbar .navbar-brand,
+.main-header .navbar h1,
+.main-header .title {
+  color: var(--lv-text) !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+}
+
+/* === CONTENT AREA === */
+.content-wrapper {
+  background: var(--lv-bg) !important;
+}
+
+/* === SMALL-BOX — cards légères === */
+.small-box {
+  border-radius: var(--lv-radius) !important;
+  box-shadow: var(--lv-shadow) !important;
+  border: 1px solid transparent !important;
+  overflow: hidden !important;
+}
+.small-box h3 {
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1 !important;
+}
+.small-box p {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  opacity: 0.8 !important;
+}
+.small-box .small-box-footer {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 6px 10px !important;
+}
+.small-box .icon { opacity: 0.18 !important; }
+
+/* Élèves → bleu */
+.small-box.bg-aqua, .small-box.bg-blue {
+  background: var(--lv-blue) !important;
+  border-color: var(--lv-blue) !important;
+  color: #fff !important;
+}
+.small-box.bg-aqua .small-box-footer,
+.small-box.bg-blue .small-box-footer {
+  background: rgba(0,0,0,0.12) !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* Enseignants → violet */
+.small-box.bg-purple {
+  background: var(--lv-purple) !important;
+  border-color: var(--lv-purple) !important;
+  color: #fff !important;
+}
+.small-box.bg-purple .small-box-footer {
+  background: rgba(0,0,0,0.12) !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* Finance → vert */
+.small-box.bg-green {
+  background: var(--lv-green) !important;
+  border-color: var(--lv-green) !important;
+  color: #fff !important;
+}
+.small-box.bg-green .small-box-footer {
+  background: rgba(0,0,0,0.12) !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* Alertes → orange */
+.small-box.bg-yellow, .small-box.bg-orange {
+  background: var(--lv-amber) !important;
+  border-color: var(--lv-amber) !important;
+  color: #fff !important;
+}
+.small-box.bg-yellow .small-box-footer,
+.small-box.bg-orange .small-box-footer {
+  background: rgba(0,0,0,0.12) !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* === INFO-BOX — cards avec icône === */
+.info-box {
+  border-radius: var(--lv-radius) !important;
+  box-shadow: var(--lv-shadow) !important;
+  background: var(--lv-white) !important;
+  border: 1px solid #E2E8F0 !important;
+  min-height: 72px !important;
+}
+.info-box-icon {
+  border-radius: var(--lv-radius) 0 0 var(--lv-radius) !important;
+  width: 70px !important;
+  line-height: 72px !important;
+  font-size: 28px !important;
+}
+.info-box-icon.bg-aqua, .info-box-icon.bg-blue {
+  background: var(--lv-blue) !important;
+  color: #fff !important;
+}
+.info-box-icon.bg-green {
+  background: var(--lv-green) !important;
+  color: #fff !important;
+}
+.info-box-icon.bg-yellow, .info-box-icon.bg-orange {
+  background: var(--lv-amber) !important;
+  color: #fff !important;
+}
+.info-box-icon.bg-red {
+  background: var(--lv-red) !important;
+  color: #fff !important;
+}
+.info-box-icon.bg-purple {
+  background: var(--lv-purple) !important;
+  color: #fff !important;
+}
+.info-box-content {
+  padding: 10px 14px !important;
+}
+.info-box-text {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--lv-text-soft) !important;
+}
+.info-box-number {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: var(--lv-text) !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* === BOX / CARD === */
+.box, .card {
+  border-radius: var(--lv-radius) !important;
+  box-shadow: var(--lv-shadow) !important;
+  border: 1px solid #E2E8F0 !important;
+  background: var(--lv-white) !important;
+}
+.box-header, .card-header {
+  background: var(--lv-white) !important;
+  border-bottom: 1px solid #F1F5F9 !important;
+  color: var(--lv-text) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 14px 16px !important;
+}
+.box-title, .card-title {
+  color: var(--lv-text) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+/* === TABLEAUX === */
+.table thead th {
+  background: #F8FAFC !important;
+  color: var(--lv-text-soft) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  border-bottom: 2px solid #E2E8F0 !important;
+  padding: 10px 14px !important;
+}
+.table tbody td {
+  color: var(--lv-text) !important;
+  font-size: 13px !important;
+  padding: 10px 14px !important;
+  border-bottom: 1px solid #F1F5F9 !important;
+  vertical-align: middle !important;
+}
+.table tbody tr:hover {
+  background: var(--lv-blue-light) !important;
+}
+
+/* === BOUTONS === */
+.btn {
+  border-radius: 7px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 7px 16px !important;
+  transition: all 0.15s ease !important;
+}
+.btn-primary, .btn-info {
+  background: var(--lv-blue) !important;
+  border-color: var(--lv-blue) !important;
+  color: #fff !important;
+}
+.btn-primary:hover, .btn-info:hover {
+  background: #1E3FA8 !important;
+  border-color: #1E3FA8 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 10px rgba(43,82,212,0.25) !important;
+}
+.btn-success {
+  background: var(--lv-green) !important;
+  border-color: var(--lv-green) !important;
+  color: #fff !important;
+}
+.btn-danger {
+  background: var(--lv-red) !important;
+  border-color: var(--lv-red) !important;
+  color: #fff !important;
+}
+
+/* === BADGES & LABELS === */
+.badge, .label {
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  padding: 3px 9px !important;
+}
+
+/* === RTL arabe === */
+[dir="rtl"] .main-sidebar {
+  border-right: none !important;
+  border-left: 1px solid #E2E8F0 !important;
+}
+[dir="rtl"] .sidebar-menu > li.active > a {
+  border-left: none !important;
+  border-right: 3px solid var(--lv-blue) !important;
+}
+[dir="rtl"] .info-box-icon {
+  border-radius: 0 var(--lv-radius) var(--lv-radius) 0 !important;
+}
+
+/* ============================================
+   LA VICTOIRE — Info-box couleurs v3.0
+   Ciblage par href (pas de classes couleur)
+   ============================================ */
+
+/* Base commune toutes info-box */
+.info-box {
+  border-radius: 12px !important;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07) !important;
+  overflow: hidden !important;
+  border: 1px solid #E2E8F0 !important;
+  background: #fff !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+.info-box:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.10) !important;
+}
+.info-box-icon {
+  width: 72px !important;
+  line-height: 72px !important;
+  font-size: 26px !important;
+  color: #fff !important;
+  border-radius: 12px 0 0 12px !important;
+}
+.info-box-text {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.07em !important;
+  color: #64748B !important;
+}
+.info-box-number {
+  font-size: 26px !important;
+  font-weight: 600 !important;
+  color: #1E293B !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Élèves — bleu */
+.info-box a[href*="student"] .info-box-icon,
+.info-box a[href*="student/search"] .info-box-icon {
+  background: #2B52D4 !important;
+}
+
+/* Enseignants — violet */
+.info-box a[href*="teacher"] .info-box-icon,
+.info-box a[href*="staff"] .info-box-icon {
+  background: #7C3AED !important;
+}
+
+/* Collecte / Frais — vert */
+.info-box a[href*="fee"] .info-box-icon,
+.info-box a[href*="collect"] .info-box-icon,
+.info-box a[href*="fees"] .info-box-icon {
+  background: #16A34A !important;
+}
+
+/* Dépenses — orange */
+.info-box a[href*="expense"] .info-box-icon,
+.info-box a[href*="depense"] .info-box-icon {
+  background: #D97706 !important;
+}
+
+/* Présence — cyan */
+.info-box a[href*="attendance"] .info-box-icon,
+.info-box a[href*="presence"] .info-box-icon {
+  background: #0891B2 !important;
+}
+
+/* Admin / Staff — gris bleu */
+.info-box a[href*="admin"] .info-box-icon,
+.info-box a[href*="superadmin"] .info-box-icon {
+  background: #475569 !important;
+}
+
+/* Examens — rouge doux */
+.info-box a[href*="exam"] .info-box-icon {
+  background: #DC2626 !important;
+}
+
+/* Fallback — toutes icônes sans couleur encore */
+.info-box .info-box-icon:not([style*="background"]) {
+  background: #2B52D4 !important;
+}
+
+/* ============================================
+   LA VICTOIRE — Info-box couleurs v4.0
+   Ciblage par attribut href + texte label
+   ============================================ */
+
+/* Collecte frais → vert */
+.info-box a[href*="studentfee"] .info-box-icon {
+  background: #16A34A !important;
+}
+
+/* Dépenses → orange */
+.info-box a[href*="expense"] .info-box-icon {
+  background: #D97706 !important;
+}
+
+/* Élèves → bleu */
+.info-box a[href*="student"] .info-box-icon {
+  background: #2B52D4 !important;
+}
+
+/* Cards avec href="#" — ciblage par position nth-of-type */
+/* Ordre dans le HTML : Admin, Enseignants, Comptable,
+   Librarian, Receptioniste, Super Admin, Directrice    */
+
+.info-box:has(.info-box-text:-webkit-contains("Admin")):not(:has(a[href*="admin"])) .info-box-icon,
+.info-box:has(.info-box-text) a[href="#"] ~ * .info-box-icon {
+  background: #475569 !important;
+}
+
+/* ============================================
+   LA VICTOIRE — Info-box couleurs v5.0 (Fixes)
+   ============================================ */
+
+/* Priorité au vert pour la collecte */
+.info-box a[href*="studentfee"] .info-box-icon {
+  background: #16A34A !important;
+}
+
+/* Priorité au bleu pour les élèves uniquement */
+.info-box a[href*="student"]:not([href*="fee"]) .info-box-icon {
+  background: #2B52D4 !important;
+}

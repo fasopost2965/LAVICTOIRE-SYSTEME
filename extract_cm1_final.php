@@ -1,0 +1,95 @@
+<?php
+/**
+ * Extraction and Classification of CM1 Students for Migration to CM2
+ * Fix: Unset reference after foreach to avoid data corruption.
+ */
+
+define('LEGACY_DB_HOST', 'localhost');
+define('LEGACY_DB_USER', 'u707543112_systeme');
+define('LEGACY_DB_PASS', '/|098hH7');
+define('LEGACY_DB_NAME', 'u707543112_systeme');
+
+$conn = new mysqli(LEGACY_DB_HOST, LEGACY_DB_USER, LEGACY_DB_PASS, LEGACY_DB_NAME);
+if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+
+// 1. Fetch CM1 Students (Session 21, Class 3)
+$sql = "SELECT s.*, ss.id as student_session_id
+        FROM students s
+        JOIN student_session ss ON ss.student_id = s.id
+        WHERE ss.session_id = 21 AND ss.class_id = 3
+        ORDER BY CAST(s.admission_no AS UNSIGNED) ASC";
+
+$result = $conn->query($sql);
+$students = [];
+while ($row = $result->fetch_assoc()) {
+    $students[] = $row;
+}
+
+echo "Found " . count($students) . " students.\n";
+
+// 2. Classify by Fees
+foreach ($students as &$student) {
+    $ss_id = $student['student_session_id'];
+    
+    // Get Scolarit?? amount
+    $fee_sql = "SELECT fgft.amount 
+                FROM student_fees_master sfm
+                JOIN fee_session_groups fsg ON fsg.id = sfm.fee_session_group_id
+                JOIN fee_groups_feetype fgft ON fgft.fee_session_group_id = fsg.id
+                JOIN feetype ft ON ft.id = fgft.feetype_id
+                WHERE sfm.student_session_id = $ss_id AND ft.type LIKE '%Scolarit%'
+                ORDER BY fgft.amount DESC LIMIT 1";
+    
+    $fee_res = $conn->query($fee_sql);
+    $fee_row = $fee_res->fetch_assoc();
+    $student['scolarite_amount'] = $fee_row['amount'] ?? 0;
+
+    if ($student['scolarite_amount'] == 750) {
+        $student['category'] = 'LEGACY_750';
+    } elseif ($student['scolarite_amount'] == 900) {
+        $student['category'] = 'STANDARD_900';
+    } else {
+        $student['category'] = 'A_VERIFIER';
+    }
+}
+unset($student); // CRITICAL FIX
+
+// 3. Generate CSVs with 50/50 A/B Distribution
+$files = [
+    'LEGACY_750' => fopen('CM1_LEGACY_750.csv', 'w'),
+    'STANDARD_900' => fopen('CM1_STANDARD_900.csv', 'w'),
+    'A_VERIFIER' => fopen('CM1_A_VERIFIER.csv', 'w')
+];
+
+$header = ['admission_no', 'firstname', 'lastname', 'gender', 'dob', 'guardian_name', 'guardian_phone', 'guardian_email', 'guardian_relation', 'category', 'class_section_id'];
+
+foreach ($files as $f) fputcsv($f, $header);
+
+$i = 0;
+foreach ($students as $student) {
+    // A/B Distribution (22 = CM2-A, 23 = CM2-B)
+    $class_section_id = ($i % 2 == 0) ? 22 : 23;
+    
+    $row = [
+        $student['admission_no'],
+        $student['firstname'],
+        $student['lastname'],
+        $student['gender'],
+        $student['dob'],
+        $student['guardian_name'],
+        $student['guardian_phone'],
+        $student['guardian_email'],
+        $student['guardian_relation'],
+        $student['category'],
+        $class_section_id
+    ];
+    
+    fputcsv($files[$student['category']], $row);
+    $i++;
+}
+
+foreach ($files as $f) fclose($f);
+$conn->close();
+
+echo "Extraction completed. 3 CSV files generated.\n";
+?>

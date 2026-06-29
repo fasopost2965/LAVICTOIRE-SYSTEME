@@ -1,0 +1,151 @@
+/* 
+    E-Victoire Modern Dashboard Design System
+    Created to modernize the UI without breaking structural integrity.
+*/
+
+:root {
+    --ev-primary: #1a237e;
+    --ev-primary-light: #3f51b5;
+    --ev-accent: #0097a7;
+    --ev-bg: #f8fafc;
+    --ev-card-bg: #ffffff;
+    --ev-text: #334155;
+    --ev-text-muted: #64748b;
+    --ev-radius: 12px;
+    --ev-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --ev-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Base Body Styles */
+body.light-mode {
+    background-color: var(--ev-bg) !important;
+    color: var(--ev-text);
+}
+
+/* Modernizing Cards/Boxes */
+.box, .info-box, .panel, .card {
+    border-radius: var(--ev-radius) !important;
+    border: none !important;
+    box-shadow: var(--ev-shadow) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    background: var(--ev-card-bg) !important;
+}
+
+.box:hover, .info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--ev-shadow-hover) !important;
+}
+
+/* Buttons Modernization */
+.btn {
+    border-radius: 8px !important;
+    padding: 8px 18px !important;
+    font-weight: 500 !important;
+    text-transform: capitalize !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--ev-primary) 0%, var(--ev-primary-light) 100%) !important;
+    border: none !important;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3) !important;
+    filter: brightness(1.1);
+}
+
+/* Table Enhancements */
+.table {
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+.table thead th {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--ev-text-muted) !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+    padding: 15px !important;
+}
+
+.table tbody tr {
+    background-color: var(--ev-card-bg) !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
+    transition: all 0.2s ease !important;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f5f9 !important;
+    transform: scale(1.005);
+}
+
+.table tbody td {
+    padding: 15px !important;
+    border-top: 1px solid #f1f5f9 !important;
+    vertical-align: middle !important;
+}
+
+.table tbody tr td:first-child { border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+.table tbody tr td:last-child { border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+
+/* Sidebar Tweaks */
+.main-sidebar {
+    background-color: #ffffff !important;
+    box-shadow: 2px 0 20px rgba(0,0,0,0.05) !important;
+}
+
+.sidebar-menu > li > a {
+    border-radius: 10px !important;
+    margin: 5px 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+.sidebar-menu > li.active > a, .sidebar-menu > li > a:hover {
+    background-color: rgba(26, 35, 126, 0.05) !important;
+    color: var(--ev-primary) !important;
+    border-left-color: var(--ev-primary) !important;
+}
+
+/* Info Boxes */
+.info-box-icon {
+    border-radius: 12px !important;
+    margin: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 10px 15px !important;
+}
+
+.form-control:focus {
+    border-color: var(--ev-primary-light) !important;
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1) !important;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
